@@ -1,0 +1,539 @@
+:root {
+    --primary-color: #6c4ce4;
+    --primary-dark: #5032bd;
+    --sidebar-color: #25204f;
+    --background-color: #f5f6fa;
+    --card-color: #ffffff;
+    --text-color: #29283a;
+    --muted-color: #858599;
+    --border-color: #e9e9f0;
+    --income-color: #159b72;
+    --expense-color: #e45d6d;
+    --border-radius: 12px;
+}   
+
+* {
+margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+
+/* ========================================
+   2. MAIN LAYOUT
+======================================== */
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 30px;
+}
+
+
+/* ========================================
+   3. SIDEBAR
+======================================== */
+
+.sidebar {
+    width: 245px;
+    min-width: 245px;
+    background-color: var(--sidebar-color);
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 25px 16px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 45px;
+}
+
+.logo h2 {
+    font-size: 19px;
+}
+
+.logo-icon {
+    width: 36px;
+    height: 36px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: #d5d2e8;
+    text-decoration: none;
+
+    padding: 13px;
+    border-radius: 8px;
+
+    transition: 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    color: #aaa6c7;
+    font-size: 12px;
+    padding: 15px 5px;
+}
+
+
+/* ========================================
+   4. DASHBOARD HEADER
+======================================== */
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+    margin-bottom: 28px;
+}
+
+.page-header h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.page-header p,
+.section-heading p {
+    color: var(--muted-color);
+    font-size: 14px;
+}
+
+.current-date {
+    color: var(--muted-color);
+    font-size: 14px;
+}
+
+
+/* ========================================
+   5. SUMMARY CARDS
+======================================== */
+
+.summary-grid {
+    display: grid;
+
+    /* Automatically fits cards into available space */
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.summary-card {
+    background-color: var(--card-color);
+    padding: 22px;
+    border-radius: var(--border-radius);
+
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--primary-color);
+}
+
+.summary-card p {
+    color: var(--muted-color);
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.summary-card h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    overflow-wrap: anywhere;
+}
+
+.summary-card span {
+    color: var(--muted-color);
+    font-size: 12px;
+}
+
+.income-card {
+    border-left-color: var(--income-color);
+}
+
+.expense-card {
+    border-left-color: var(--expense-color);
+}
+
+.monthly-card {
+    border-left-color: #e5a53b;
+}
+
+
+/* ========================================
+   6. CONTENT CARDS
+======================================== */
+
+.content-card {
+    background-color: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+
+    padding: 24px;
+    margin-bottom: 25px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 22px;
+}
+
+.section-heading h2 {
+    font-size: 19px;
+    margin-bottom: 7px;
+}
+
+
+/* ========================================
+   7. TRANSACTION FORM
+======================================== */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.filter-container input,
+.filter-container select {
+    width: 100%;
+    padding: 12px;
+
+    border: 1px solid var(--border-color);
+    border-radius: 7px;
+
+    background-color: white;
+    color: var(--text-color);
+
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.filter-container input:focus,
+.filter-container select:focus {
+    border-color: var(--primary-color);
+}
+
+.button-group {
+    justify-content: flex-end;
+}
+
+.primary-button {
+    padding: 12px 18px;
+
+    background-color: var(--primary-color);
+    color: white;
+
+    border: none;
+    border-radius: 7px;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.primary-button:hover {
+    background-color: var(--primary-dark);
+}
+
+
+/* ========================================
+   8. CATEGORY OVERVIEW
+======================================== */
+
+.category-overview {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.category-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 13px;
+}
+
+.category-info span:last-child {
+    color: var(--muted-color);
+}
+
+.progress-track {
+    height: 9px;
+    background-color: #eeeeF5;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 20px;
+}
+
+.empty-message {
+    color: var(--muted-color);
+    font-size: 14px;
+}
+
+
+/* ========================================
+   9. SEARCH AND FILTERS
+======================================== */
+
+.filter-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+
+/* ========================================
+   10. TRANSACTION TABLE
+======================================== */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+thead {
+    background-color: #f7f7fb;
+}
+
+th,
+td {
+    padding: 15px 12px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+th {
+    color: var(--muted-color);
+    font-weight: bold;
+}
+
+td {
+    color: var(--text-color);
+}
+
+.amount-income {
+    color: var(--income-color);
+    font-weight: bold;
+}
+
+.amount-expense {
+    color: var(--expense-color);
+    font-weight: bold;
+}
+
+.type-badge {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.income-badge {
+    background-color: #e4f6ef;
+    color: var(--income-color);
+}
+
+.expense-badge {
+    background-color: #fdebed;
+    color: var(--expense-color);
+}
+
+.delete-button {
+    background-color: #fdebed;
+    color: var(--expense-color);
+
+    border: none;
+    padding: 7px 10px;
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #f9d5d9;
+}
+
+.transaction-count {
+    margin-top: 15px;
+    color: var(--muted-color);
+    font-size: 12px;
+}
+
+.page-footer {
+    text-align: center;
+    color: var(--muted-color);
+    font-size: 12px;
+    padding: 15px;
+}
+
+
+/* ========================================
+   11. RESPONSIVE DESIGN
+======================================== */
+
+/* Tablets */
+@media (max-width: 1000px) {
+
+    .summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .form-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* Mobile devices */
+@media (max-width: 650px) {
+
+    .app-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-width: 0;
+        padding: 15px;
+    }
+
+    .logo {
+        margin-bottom: 15px;
+    }
+
+    .navigation {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .nav-link {
+        padding: 9px;
+        font-size: 12px;
+    }
+
+    .sidebar-footer {
+        display: none;
+    }
+
+    .main-content {
+        padding: 17px;
+    }
+
+    .page-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .page-header h1 {
+        font-size: 23px;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .summary-card {
+        padding: 15px;
+    }
+
+    .summary-card h2 {
+        font-size: 19px;
+    }
+
+    .content-card {
+        padding: 16px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-container {
+        grid-template-columns: 1fr;
+    }
+
+}
